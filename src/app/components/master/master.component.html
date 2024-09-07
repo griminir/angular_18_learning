@@ -5,7 +5,9 @@
         (click)="changeTab('Roles')"
         type="button"
         class="btn"
-        [ngClass]="currentComponent == 'Roles' ? 'btn-primary' : 'btn-secondary'"
+        [ngClass]="
+          currentComponent == 'Roles' ? 'btn-primary' : 'btn-secondary'
+        "
       >
         Roles
       </button>
@@ -22,7 +24,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row pt-2">
   <div class="col-12" *ngIf="currentComponent == 'Roles'">
     <app-roles />
   </div>

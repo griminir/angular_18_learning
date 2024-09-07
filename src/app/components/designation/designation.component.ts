@@ -12,15 +12,18 @@ import { IDesignation } from '../../model/Interface/designation';
 })
 export class DesignationComponent implements OnInit {
   designationList: IDesignation[] = [];
+  isLoading: boolean = true;
   masterService = inject(MasterService);
 
   ngOnInit(): void {
     this.masterService.getDesignations().subscribe(
       (result: IAPIRespondsModel) => {
         this.designationList = result.data;
+        this.isLoading = false;
       },
       (error) => {
         alert('API error/ Network down');
+        this.isLoading = false;
       }
     );
   }
